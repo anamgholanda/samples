@@ -1,0 +1,102 @@
+name: sonarcloud
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    types: [opened, synchronize, reopened]
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  sonarcloud:
+    name: Análise SonarCloud
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # histórico completo, necessário para o Sonar
+
+      - name: Setup Flutter (inclui Dart)
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+
+      - name: Ferramenta de cobertura para pacotes Dart
+        run: dart pub global activate coverage
+
+      - name: Testes com cobertura (todos os projetos)
+        run: |
+          set -uo pipefail
+          export PATH="$PATH:$HOME/.pub-cache/bin"
+          mkdir -p "$RUNNER_TEMP/cov"
+          : > "$RUNNER_TEMP/cov/lcov.info"
+
+          # Cada exemplo é um projeto independente: procura pubspec.yaml em qualquer nível
+          while IFS= read -r pubspec; do
+            pkg="$(dirname "$pubspec")"
+            [ -d "$pkg/test" ] || continue
+
+            echo "::group::$pkg"
+            (
+              cd "$pkg"
+              if grep -q "sdk: flutter" pubspec.yaml; then
+                flutter pub get
+                flutter test --coverage
+              else
+                dart pub get
+                dart test --coverage=coverage
+                dart pub global run coverage:format_coverage \
+                  --lcov --in=coverage --out=coverage/lcov.info \
+                  --report-on=lib --packages=.dart_tool/package_config.json
+              fi
+            ) || echo "::warning::Falha nos testes de $pkg"
+
+            # Caminhos (SF:) relativos à raiz do repositório
+            if [ -f "$pkg/coverage/lcov.info" ]; then
+              sed "s|^SF:|SF:${pkg#./}/|" "$pkg/coverage/lcov.info" >> "$RUNNER_TEMP/cov/lcov.info"
+            fi
+            echo "::endgroup::"
+          done < <(find . -name pubspec.yaml \
+                     -not -path "*/.dart_tool/*" \
+                     -not -path "*/build/*" \
+                     -not -path "*/ephemeral/*" \
+                     -not -path "*/.symlinks/*" \
+                     -not -path "*/node_modules/*" | sort)
+
+          mkdir -p coverage
+          cp "$RUNNER_TEMP/cov/lcov.info" coverage/lcov.info
+
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarqube-scan-action@v5
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        with:
+          args: >
+            -Dsonar.host.url=https://sonarcloud.io
+            -Dsonar.organization=anamgholanda
+            -Dsonar.projectKey=anamgholanda_samples
+            -Dsonar.projectName=samples
+            -Dsonar.sourceEncoding=UTF-8
+            -Dsonar.sources=.
+            -Dsonar.inclusions=**/lib/**/*.dart
+            -Dsonar.exclusions=**/*.g.dart,**/*.freezed.dart,**/generated/**,**/.dart_tool/**,**/build/**,**/ephemeral/**
+            -Dsonar.test.inclusions=**/test/**/*.dart
+            -Dsonar.dart.lcov.reportPaths=coverage/lcov.info
+
+      - name: Quality Gate
+        uses: SonarSource/sonarqube-quality-gate-action@v1
+        timeout-minutes: 5
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
