@@ -36,6 +36,44 @@ jobs:
       - name: Ferramenta de cobertura para pacotes Dart
         run: dart pub global activate coverage
 
+      # Resolve as dependências de TODOS os pacotes (inclusive os sem testes) antes da
+      # análise. Sem isso o analisador Dart não encontra os pacotes importados e gera
+      # milhares de erros "Undefined name/class" (regra dart:S2260).
+      - name: Resolver dependências de todos os pacotes
+        run: |
+          set -uo pipefail
+          ok=0; failed=0
+          : > "$RUNNER_TEMP/pub_failed.txt"
+
+          while IFS= read -r pubspec; do
+            pkg="$(dirname "$pubspec")"
+            echo "::group::pub get em $pkg"
+            if (cd "$pkg" && flutter pub get); then
+              ok=$((ok+1))
+            else
+              failed=$((failed+1))
+              echo "$pkg" >> "$RUNNER_TEMP/pub_failed.txt"
+              echo "::warning::pub get falhou em $pkg"
+            fi
+            echo "::endgroup::"
+          done < <(find . -name pubspec.yaml \
+                     -not -path "*/.dart_tool/*" \
+                     -not -path "*/build/*" \
+                     -not -path "*/ephemeral/*" \
+                     -not -path "*/.symlinks/*" \
+                     -not -path "*/node_modules/*" | sort)
+
+          {
+            echo "### Resolução de dependências"
+            echo "- Pacotes resolvidos: $ok"
+            echo "- Pacotes com falha: $failed"
+            if [ "$failed" -gt 0 ]; then
+              echo ""; echo "Sem dependências resolvidas (a análise deles terá ruído):"; echo '```'
+              cat "$RUNNER_TEMP/pub_failed.txt"; echo '```'
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
+          echo "Resolvidos: $ok | Falharam: $failed"
+
       - name: Testes com cobertura (todos os projetos)
         run: |
           set -uo pipefail
@@ -52,10 +90,8 @@ jobs:
             (
               cd "$pkg"
               if grep -q "sdk: flutter" pubspec.yaml; then
-                flutter pub get
                 flutter test --coverage
               else
-                dart pub get
                 dart test --coverage=coverage
                 dart pub global run coverage:format_coverage \
                   --lcov --in=coverage --out=coverage/lcov.info \
