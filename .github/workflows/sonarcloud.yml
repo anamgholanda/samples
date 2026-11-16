@@ -28,93 +28,13 @@ jobs:
           fetch-depth: 0 # histórico completo, necessário para o Sonar
 
       - name: Setup Flutter (inclui Dart)
-        id: flutter-setup
         uses: subosito/flutter-action@v2
         with:
           channel: stable
           cache: true
 
-      - name: Verificar FLUTTER_ROOT
-        run: |
-          echo "FLUTTER_ROOT=$FLUTTER_ROOT"
-          echo "PUB_CACHE=$PUB_CACHE"
-
       - name: Ferramenta de cobertura para pacotes Dart
         run: dart pub global activate coverage
-
-      # Resolve as dependências e gera código (build_runner) em cada projeto
-      - name: Resolver dependências e gerar código dos pacotes
-        run: |
-          set -uo pipefail
-          ok=0; failed=0
-          : > "$RUNNER_TEMP/pub_failed.txt"
-
-          while IFS= read -r pubspec; do
-            pkg="$(dirname "$pubspec")"
-            echo "::group::Dependências em $pkg"
-            if (cd "$pkg" && flutter pub get); then
-              ok=$((ok+1))
-              if grep -q "build_runner:" "$pubspec"; then
-                (cd "$pkg" && dart run build_runner build --delete-conflicting-outputs) || \
-                  echo "::warning::build_runner falhou em $pkg"
-              fi
-            else
-              failed=$((failed+1))
-              echo "$pkg" >> "$RUNNER_TEMP/pub_failed.txt"
-              echo "::warning::pub get falhou em $pkg"
-            fi
-            echo "::endgroup::"
-          done < <(find . -mindepth 2 -name pubspec.yaml \
-                     -not -path "*/.dart_tool/*" \
-                     -not -path "*/build/*" \
-                     -not -path "*/ephemeral/*" \
-                     -not -path "*/.symlinks/*" \
-                     -not -path "*/node_modules/*" | sort)
-
-          {
-            echo "### Resolução de dependências"
-            echo "- Pacotes resolvidos: $ok"
-            echo "- Pacotes com falha: $failed"
-            if [ "$failed" -gt 0 ]; then
-              echo ""; echo "Sem dependências resolvidas (a análise deles terá ruído):"; echo '```'
-              cat "$RUNNER_TEMP/pub_failed.txt"; echo '```'
-            fi
-          } >> "$GITHUB_STEP_SUMMARY"
-          echo "Resolvidos: $ok | Falharam: $failed"
-
-      # Unifica os .dart_tool/package_config.json dos subprojetos na raiz para o SonarScanner
-      - name: Unificar package_config.json na raiz para o SonarScanner
-        run: |
-          python3 - <<'EOF'
-          import json, glob, os
-
-          merged_packages = {}
-          for cfg_path in sorted(glob.glob("**/.dart_tool/package_config.json", recursive=True)):
-              if cfg_path.startswith(".dart_tool/"):
-                  continue
-              pkg_dir = os.path.dirname(os.path.dirname(cfg_path))
-              with open(cfg_path, "r", encoding="utf-8") as f:
-                  data = json.load(f)
-              for pkg in data.get("packages", []):
-                  name = pkg["name"]
-                  root_uri = pkg["rootUri"]
-                  if not root_uri.startswith("file://"):
-                      abs_root = os.path.normpath(os.path.join(pkg_dir, ".dart_tool", root_uri))
-                      rel_root = os.path.relpath(abs_root, ".dart_tool")
-                      pkg["rootUri"] = rel_root
-                  if name not in merged_packages or "pub-cache" in pkg["rootUri"]:
-                      merged_packages[name] = pkg
-
-          os.makedirs(".dart_tool", exist_ok=True)
-          out = {
-              "configVersion": 2,
-              "packages": list(merged_packages.values()),
-              "generator": "pub"
-          }
-          with open(".dart_tool/package_config.json", "w", encoding="utf-8") as f:
-              json.dump(out, f, indent=2)
-          print(f"Total de pacotes unificados para o Sonar: {len(merged_packages)}")
-          EOF
 
       - name: Testes com cobertura (todos os projetos)
         run: |
@@ -123,6 +43,7 @@ jobs:
           mkdir -p "$RUNNER_TEMP/cov"
           : > "$RUNNER_TEMP/cov/lcov.info"
 
+          # Cada exemplo é um projeto independente: procura pubspec.yaml em qualquer nível
           while IFS= read -r pubspec; do
             pkg="$(dirname "$pubspec")"
             [ -d "$pkg/test" ] || continue
@@ -131,8 +52,10 @@ jobs:
             (
               cd "$pkg"
               if grep -q "sdk: flutter" pubspec.yaml; then
+                flutter pub get
                 flutter test --coverage
               else
+                dart pub get
                 dart test --coverage=coverage
                 dart pub global run coverage:format_coverage \
                   --lcov --in=coverage --out=coverage/lcov.info \
@@ -140,11 +63,12 @@ jobs:
               fi
             ) || echo "::warning::Falha nos testes de $pkg"
 
+            # Caminhos (SF:) relativos à raiz do repositório
             if [ -f "$pkg/coverage/lcov.info" ]; then
               sed "s|^SF:|SF:${pkg#./}/|" "$pkg/coverage/lcov.info" >> "$RUNNER_TEMP/cov/lcov.info"
             fi
             echo "::endgroup::"
-          done < <(find . -mindepth 2 -name pubspec.yaml \
+          done < <(find . -name pubspec.yaml \
                      -not -path "*/.dart_tool/*" \
                      -not -path "*/build/*" \
                      -not -path "*/ephemeral/*" \
@@ -158,8 +82,6 @@ jobs:
         uses: SonarSource/sonarqube-scan-action@v5
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          FLUTTER_ROOT: ${{ env.FLUTTER_ROOT }}
-          PUB_CACHE: ${{ env.PUB_CACHE }}
         with:
           args: >
             -Dsonar.host.url=https://sonarcloud.io
@@ -169,9 +91,8 @@ jobs:
             -Dsonar.sourceEncoding=UTF-8
             -Dsonar.sources=.
             -Dsonar.inclusions=**/lib/**/*.dart
-            -Dsonar.exclusions=**/*.g.dart,**/*.freezed.dart,**/generated/**,**/build/**,**/ephemeral/**
+            -Dsonar.exclusions=**/*.g.dart,**/*.freezed.dart,**/generated/**,**/.dart_tool/**,**/build/**,**/ephemeral/**
             -Dsonar.test.inclusions=**/test/**/*.dart
-            -Dsonar.dart.flutter.sdk=${{ env.FLUTTER_ROOT }}
             -Dsonar.dart.lcov.reportPaths=coverage/lcov.info
 
       - name: Quality Gate
