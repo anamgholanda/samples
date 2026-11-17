@@ -4,8 +4,8 @@
 
 import 'package:compass_app/ui/search_form/view_models/search_form_viewmodel.dart';
 import 'package:compass_app/ui/search_form/widgets/search_form_submit.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:mocktail/mocktail.dart';
 
 import '../../../../testing/app.dart';
@@ -34,7 +34,7 @@ void main() {
       );
     }
 
-    testWidgets('Should be enabled and allow tap', (WidgetTester tester) async {
+    testWidgets('Should be enabled and allow tap', (tester) async {
       await loadWidget(tester);
       expect(find.byType(SearchFormSubmit), findsOneWidget);
 

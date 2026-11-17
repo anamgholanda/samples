@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'package:flutter/cupertino.dart';
+import 'package:cupertino_ui/cupertino_ui.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
@@ -11,10 +11,10 @@ import '../ui/activities/view_models/activities_viewmodel.dart';
 import '../ui/activities/widgets/activities_screen.dart';
 import '../ui/auth/login/view_models/login_viewmodel.dart';
 import '../ui/auth/login/widgets/login_screen.dart';
+import '../ui/auth/logout/view_models/logout_viewmodel.dart';
 import '../ui/booking/view_models/booking_viewmodel.dart';
 import '../ui/booking/widgets/booking_screen.dart';
-import '../ui/home/view_models/home_viewmodel.dart';
-import '../ui/home/widgets/home_screen.dart';
+import '../ui/home/widgets/home_screen_container.dart';
 import '../ui/results/view_models/results_viewmodel.dart';
 import '../ui/results/widgets/results_screen.dart';
 import '../ui/search_form/view_models/search_form_viewmodel.dart';
@@ -23,7 +23,7 @@ import 'routes.dart';
 
 /// Top go_router entry point.
 ///
-/// Listens to changes in [AuthTokenRepository] to redirect the user
+/// Listens to changes in [AuthRepository] to redirect the user
 /// to /login when the user logs out.
 GoRouter router(AuthRepository authRepository) => GoRouter(
   initialLocation: Routes.home,
@@ -42,11 +42,11 @@ GoRouter router(AuthRepository authRepository) => GoRouter(
     GoRoute(
       path: Routes.home,
       builder: (context, state) {
-        final viewModel = HomeViewModel(
-          bookingRepository: context.read(),
-          userRepository: context.read(),
+        final logoutViewModel = LogoutViewModel(
+          authRepository: context.read(),
+          itineraryConfigRepository: context.read(),
         );
-        return HomeScreen(viewModel: viewModel);
+        return HomeScreenContainer(logoutViewModel: logoutViewModel);
       },
       routes: [
         GoRoute(

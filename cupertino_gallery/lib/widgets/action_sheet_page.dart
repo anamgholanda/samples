@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:cupertino_ui/cupertino_ui.dart';
 
 class ActionSheetPage extends StatelessWidget {
   const ActionSheetPage({super.key});
@@ -6,14 +6,16 @@ class ActionSheetPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
-      navigationBar: const CupertinoNavigationBar(middle: Text('Action Sheet')),
+      navigationBar: const CupertinoNavigationBar(
+        middle: Text('Action Sheet'),
+      ),
       child: Center(
         child: CupertinoButton(
           child: const Text('Show Action Sheet'),
           onPressed: () {
             showCupertinoModalPopup<void>(
               context: context,
-              builder: (BuildContext context) => CupertinoActionSheet(
+              builder: (context) => CupertinoActionSheet(
                 title: const Text('Title'),
                 message: const Text('Message'),
                 actions: <CupertinoActionSheetAction>[

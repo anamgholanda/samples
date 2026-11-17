@@ -1,4 +1,5 @@
-import 'package:flutter/cupertino.dart';
+import 'package:cupertino_ui/cupertino_ui.dart';
+
 import 'settings_page.dart';
 import 'widgets_page.dart';
 
@@ -31,9 +32,9 @@ class GalleryHome extends StatelessWidget {
           ),
         ],
       ),
-      tabBuilder: (BuildContext context, int index) {
+      tabBuilder: (context, index) {
         return CupertinoTabView(
-          builder: (BuildContext context) {
+          builder: (context) {
             return switch (index) {
               0 => const WidgetsPage(),
               1 => SettingsPage(

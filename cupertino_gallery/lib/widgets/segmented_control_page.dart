@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:cupertino_ui/cupertino_ui.dart';
 
 class SegmentedControlPage extends StatefulWidget {
   const SegmentedControlPage({super.key});
@@ -23,7 +23,7 @@ class _SegmentedControlPageState extends State<SegmentedControlPage> {
             1: Text('Two'),
             2: Text('Three'),
           },
-          onValueChanged: (int val) {
+          onValueChanged: (val) {
             setState(() {
               _selectedIndex = val;
             });

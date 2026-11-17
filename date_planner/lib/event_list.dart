@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'package:flutter/cupertino.dart';
+import 'package:cupertino_ui/cupertino_ui.dart';
 import 'package:provider/provider.dart';
 
 import 'event.dart';
@@ -16,7 +16,7 @@ class EventList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Consumer<EventData>(
-      builder: (BuildContext context, EventData events, Widget? child) {
+      builder: (context, events, child) {
         return CupertinoPageScaffold(
           // TODO(mit-mit): Avoid having to pass nav bar manually.
           //

@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:cupertino_ui/cupertino_ui.dart';
 
 class RadioPage extends StatefulWidget {
   const RadioPage({super.key});
@@ -17,7 +17,7 @@ class _RadioPageState extends State<RadioPage> {
       child: Center(
         child: RadioGroup(
           groupValue: _selectedValue,
-          onChanged: (int? value) {
+          onChanged: (value) {
             setState(() {
               _selectedValue = value!;
             });

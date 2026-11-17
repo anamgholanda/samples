@@ -6,8 +6,8 @@ import 'package:compass_app/domain/models/itinerary_config/itinerary_config.dart
 import 'package:compass_app/ui/activities/view_models/activities_viewmodel.dart';
 import 'package:compass_app/ui/activities/widgets/activities_screen.dart';
 import 'package:compass_app/ui/activities/widgets/activity_entry.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:mocktail_image_network/mocktail_image_network.dart';
 
@@ -45,14 +45,14 @@ void main() {
       );
     }
 
-    testWidgets('should load screen', (WidgetTester tester) async {
+    testWidgets('should load screen', (tester) async {
       await mockNetworkImages(() async {
         await loadScreen(tester);
         expect(find.byType(ActivitiesScreen), findsOneWidget);
       });
     });
 
-    testWidgets('should list activity', (WidgetTester tester) async {
+    testWidgets('should list activity', (tester) async {
       await mockNetworkImages(() async {
         await loadScreen(tester);
         expect(find.byType(ActivityEntry), findsOneWidget);
@@ -60,9 +60,7 @@ void main() {
       });
     });
 
-    testWidgets('should select activity and confirm', (
-      WidgetTester tester,
-    ) async {
+    testWidgets('should select activity and confirm', (tester) async {
       await mockNetworkImages(() async {
         await loadScreen(tester);
         // Select one activity

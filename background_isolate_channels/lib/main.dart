@@ -4,8 +4,8 @@
 
 import 'dart:io' show Directory;
 
-import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:path/path.dart' as path;
 import 'package:path_provider/path_provider.dart' as path_provider;
 import 'package:shared_preferences/shared_preferences.dart';
@@ -65,10 +65,12 @@ class _MyHomePageState extends State<MyHomePage> {
     // Write the value to [SharedPreferences] which will get read on the
     // [SimpleDatabase]'s isolate. For this example the value is always true
     // just for demonstration purposes.
-    final Future<void> sharedPreferencesSet = SharedPreferences.getInstance()
-        .then(
-          (sharedPreferences) => sharedPreferences.setBool('isDebug', true),
-        );
+    final SharedPreferencesAsync sharedPreferences = SharedPreferencesAsync();
+
+    final Future<void> sharedPreferencesSet = sharedPreferences.setBool(
+      'isDebug',
+      true,
+    );
     final Future<Directory> tempDirFuture = path_provider
         .getTemporaryDirectory();
 

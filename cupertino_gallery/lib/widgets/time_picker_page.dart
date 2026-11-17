@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:cupertino_ui/cupertino_ui.dart';
 
 class TimePickerPage extends StatelessWidget {
   const TimePickerPage({super.key});
@@ -11,7 +11,7 @@ class TimePickerPage extends StatelessWidget {
         child: SizedBox(
           height: 200,
           child: CupertinoTimerPicker(
-            onTimerDurationChanged: (Duration newDuration) {},
+            onTimerDurationChanged: (newDuration) {},
           ),
         ),
       ),

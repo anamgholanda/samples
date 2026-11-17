@@ -1,4 +1,5 @@
-import 'package:flutter/cupertino.dart';
+import 'package:cupertino_ui/cupertino_ui.dart';
+
 import 'widget_detail_page.dart';
 
 class WidgetsPage extends StatelessWidget {
@@ -54,7 +55,7 @@ class CustomCupertinoListTile extends StatelessWidget {
       onTap: () {
         Navigator.of(context).push(
           CupertinoPageRoute<void>(
-            builder: (BuildContext context) {
+            builder: (context) {
               return WidgetDetailPage(title: title);
             },
           ),

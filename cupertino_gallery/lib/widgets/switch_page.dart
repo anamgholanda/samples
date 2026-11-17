@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:cupertino_ui/cupertino_ui.dart';
 
 class SwitchPage extends StatefulWidget {
   const SwitchPage({super.key});
@@ -17,7 +17,7 @@ class _SwitchPageState extends State<SwitchPage> {
       child: Center(
         child: CupertinoSwitch(
           value: _value,
-          onChanged: (bool value) {
+          onChanged: (value) {
             setState(() {
               _value = value;
             });

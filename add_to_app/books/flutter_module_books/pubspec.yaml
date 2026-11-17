@@ -6,16 +6,17 @@ version: 1.0.0+1
 resolution: workspace
 
 environment:
-  sdk: ^3.9.0-0
+  sdk: ^3.14.0-0
 
 dependencies:
   flutter:
     sdk: flutter
 
+  material_ui: any
 dev_dependencies:
   analysis_defaults:
     path: ../../../analysis_defaults
-  pigeon: ">=11.0.0 <27.0.0"
+  pigeon: ">=11.0.0 <30.0.0"
   flutter_test:
     sdk: flutter
 

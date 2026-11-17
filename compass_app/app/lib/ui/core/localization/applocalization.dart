@@ -3,11 +3,11 @@
 // found in the LICENSE file.
 
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 class AppLocalization {
   static AppLocalization of(BuildContext context) {
-    return Localizations.of(context, AppLocalization);
+    return Localizations.of<AppLocalization>(context, AppLocalization)!;
   }
 
   static const _strings = <String, String>{

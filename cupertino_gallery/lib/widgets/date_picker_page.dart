@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:cupertino_ui/cupertino_ui.dart';
 
 class DatePickerPage extends StatelessWidget {
   const DatePickerPage({super.key});
@@ -10,7 +10,7 @@ class DatePickerPage extends StatelessWidget {
       child: Center(
         child: SizedBox(
           height: 200,
-          child: CupertinoDatePicker(onDateTimeChanged: (DateTime newDate) {}),
+          child: CupertinoDatePicker(onDateTimeChanged: (newDate) {}),
         ),
       ),
     );

@@ -3,8 +3,8 @@
 // found in the LICENSE file.
 
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../../domain/models/continent/continent.dart';
 import '../../../utils/image_error_listener.dart';
@@ -52,7 +52,7 @@ class SearchFormContinent extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               itemCount: viewModel.continents.length,
               padding: Dimens.of(context).edgeInsetsScreenHorizontal,
-              itemBuilder: (BuildContext context, int index) {
+              itemBuilder: (context, index) {
                 final Continent(:imageUrl, :name) = viewModel.continents[index];
                 return _CarouselItem(
                   key: ValueKey(name),
@@ -61,7 +61,7 @@ class SearchFormContinent extends StatelessWidget {
                   viewModel: viewModel,
                 );
               },
-              separatorBuilder: (BuildContext context, int index) {
+              separatorBuilder: (context, index) {
                 return const SizedBox(width: 8);
               },
             );

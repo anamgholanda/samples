@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:cupertino_ui/cupertino_ui.dart';
 
 class CheckboxPage extends StatefulWidget {
   const CheckboxPage({super.key});
@@ -17,7 +17,7 @@ class _CheckboxPageState extends State<CheckboxPage> {
       child: Center(
         child: CupertinoCheckbox(
           value: _value,
-          onChanged: (bool? value) {
+          onChanged: (value) {
             setState(() {
               _value = value!;
             });

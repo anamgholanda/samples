@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:cupertino_ui/cupertino_ui.dart';
 
 class SlidingSegmentedControlPage extends StatefulWidget {
   const SlidingSegmentedControlPage({super.key});
@@ -25,7 +25,7 @@ class _SlidingSegmentedControlPageState
             1: Text('Two'),
             2: Text('Three'),
           },
-          onValueChanged: (int? value) {
+          onValueChanged: (value) {
             setState(() {
               _groupValue = value;
             });

@@ -254,7 +254,8 @@ final class $HealthConnectClient$Companion$NullableType
 
   @core$_.override
   bool operator ==(Object other) {
-    return other.runtimeType == ($HealthConnectClient$Companion$NullableType) &&
+    return other.runtimeType ==
+            ($HealthConnectClient$Companion$NullableType) &&
         other is $HealthConnectClient$Companion$NullableType;
   }
 }
@@ -406,7 +407,9 @@ class HealthConnectClient extends jni$_.JObject {
     jni$_.JList<jni$_.JObject?> list,
   ) async {
     final $p = jni$_.ReceivePort();
-    final _$continuation = jni$_.ProtectedJniExtensions.newPortContinuation($p);
+    final _$continuation = jni$_.ProtectedJniExtensions.newPortContinuation(
+      $p,
+    );
     final _$list = list.reference;
     _insertRecords(
       reference.pointer,
@@ -459,7 +462,9 @@ class HealthConnectClient extends jni$_.JObject {
     jni$_.JList<jni$_.JObject?> list,
   ) async {
     final $p = jni$_.ReceivePort();
-    final _$continuation = jni$_.ProtectedJniExtensions.newPortContinuation($p);
+    final _$continuation = jni$_.ProtectedJniExtensions.newPortContinuation(
+      $p,
+    );
     final _$list = list.reference;
     _updateRecords(
       reference.pointer,
@@ -521,7 +526,9 @@ class HealthConnectClient extends jni$_.JObject {
     jni$_.JList<jni$_.JString?> list1,
   ) async {
     final $p = jni$_.ReceivePort();
-    final _$continuation = jni$_.ProtectedJniExtensions.newPortContinuation($p);
+    final _$continuation = jni$_.ProtectedJniExtensions.newPortContinuation(
+      $p,
+    );
     final _$kClass = kClass.reference;
     final _$list = list.reference;
     final _$list1 = list1.reference;
@@ -584,7 +591,9 @@ class HealthConnectClient extends jni$_.JObject {
     TimeRangeFilter timeRangeFilter,
   ) async {
     final $p = jni$_.ReceivePort();
-    final _$continuation = jni$_.ProtectedJniExtensions.newPortContinuation($p);
+    final _$continuation = jni$_.ProtectedJniExtensions.newPortContinuation(
+      $p,
+    );
     final _$kClass = kClass.reference;
     final _$timeRangeFilter = timeRangeFilter.reference;
     _deleteRecords$1(
@@ -646,7 +655,9 @@ class HealthConnectClient extends jni$_.JObject {
     required jni$_.JObjType<$T> T,
   }) async {
     final $p = jni$_.ReceivePort();
-    final _$continuation = jni$_.ProtectedJniExtensions.newPortContinuation($p);
+    final _$continuation = jni$_.ProtectedJniExtensions.newPortContinuation(
+      $p,
+    );
     final _$kClass = kClass.reference;
     final _$string = string.reference;
     _readRecord(
@@ -701,15 +712,13 @@ class HealthConnectClient extends jni$_.JObject {
     ReadRecordsRequest<$T> readRecordsRequest, {
     jni$_.JObjType<$T>? T,
   }) async {
-    T ??=
-        jni$_.lowestCommonSuperType([
-              (readRecordsRequest.$type
-                      as $ReadRecordsRequest$Type<core$_.dynamic>)
-                  .T,
-            ])
-            as jni$_.JObjType<$T>;
+    T ??= jni$_.lowestCommonSuperType([
+      (readRecordsRequest.$type as $ReadRecordsRequest$Type<core$_.dynamic>).T,
+    ]) as jni$_.JObjType<$T>;
     final $p = jni$_.ReceivePort();
-    final _$continuation = jni$_.ProtectedJniExtensions.newPortContinuation($p);
+    final _$continuation = jni$_.ProtectedJniExtensions.newPortContinuation(
+      $p,
+    );
     final _$readRecordsRequest = readRecordsRequest.reference;
     _readRecords(
       reference.pointer,
@@ -762,7 +771,9 @@ class HealthConnectClient extends jni$_.JObject {
     AggregateRequest aggregateRequest,
   ) async {
     final $p = jni$_.ReceivePort();
-    final _$continuation = jni$_.ProtectedJniExtensions.newPortContinuation($p);
+    final _$continuation = jni$_.ProtectedJniExtensions.newPortContinuation(
+      $p,
+    );
     final _$aggregateRequest = aggregateRequest.reference;
     _aggregate(
       reference.pointer,
@@ -815,7 +826,9 @@ class HealthConnectClient extends jni$_.JObject {
     AggregateGroupByDurationRequest aggregateGroupByDurationRequest,
   ) async {
     final $p = jni$_.ReceivePort();
-    final _$continuation = jni$_.ProtectedJniExtensions.newPortContinuation($p);
+    final _$continuation = jni$_.ProtectedJniExtensions.newPortContinuation(
+      $p,
+    );
     final _$aggregateGroupByDurationRequest =
         aggregateGroupByDurationRequest.reference;
     _aggregateGroupByDuration(
@@ -873,7 +886,9 @@ class HealthConnectClient extends jni$_.JObject {
     AggregateGroupByPeriodRequest aggregateGroupByPeriodRequest,
   ) async {
     final $p = jni$_.ReceivePort();
-    final _$continuation = jni$_.ProtectedJniExtensions.newPortContinuation($p);
+    final _$continuation = jni$_.ProtectedJniExtensions.newPortContinuation(
+      $p,
+    );
     final _$aggregateGroupByPeriodRequest =
         aggregateGroupByPeriodRequest.reference;
     _aggregateGroupByPeriod(
@@ -931,7 +946,9 @@ class HealthConnectClient extends jni$_.JObject {
     ChangesTokenRequest changesTokenRequest,
   ) async {
     final $p = jni$_.ReceivePort();
-    final _$continuation = jni$_.ProtectedJniExtensions.newPortContinuation($p);
+    final _$continuation = jni$_.ProtectedJniExtensions.newPortContinuation(
+      $p,
+    );
     final _$changesTokenRequest = changesTokenRequest.reference;
     _getChangesToken(
       reference.pointer,
@@ -990,7 +1007,9 @@ class HealthConnectClient extends jni$_.JObject {
     jni$_.JObject iterable,
   ) async {
     final $p = jni$_.ReceivePort();
-    final _$continuation = jni$_.ProtectedJniExtensions.newPortContinuation($p);
+    final _$continuation = jni$_.ProtectedJniExtensions.newPortContinuation(
+      $p,
+    );
     final _$string = string.reference;
     final _$iterable = iterable.reference;
     _registerForDataNotifications(
@@ -1045,7 +1064,9 @@ class HealthConnectClient extends jni$_.JObject {
     jni$_.JString string,
   ) async {
     final $p = jni$_.ReceivePort();
-    final _$continuation = jni$_.ProtectedJniExtensions.newPortContinuation($p);
+    final _$continuation = jni$_.ProtectedJniExtensions.newPortContinuation(
+      $p,
+    );
     final _$string = string.reference;
     _unregisterFromDataNotifications(
       reference.pointer,
@@ -1096,7 +1117,9 @@ class HealthConnectClient extends jni$_.JObject {
   /// The returned object must be released after use, by calling the [release] method.
   core$_.Future<jni$_.JObject> getChanges(jni$_.JString string) async {
     final $p = jni$_.ReceivePort();
-    final _$continuation = jni$_.ProtectedJniExtensions.newPortContinuation($p);
+    final _$continuation = jni$_.ProtectedJniExtensions.newPortContinuation(
+      $p,
+    );
     final _$string = string.reference;
     _getChanges(
       reference.pointer,
@@ -1273,13 +1296,21 @@ class HealthConnectClient extends jni$_.JObject {
   ) {
     return _$invokeMethod(
       port,
-      jni$_.MethodInvocation.fromAddresses(0, descriptor.address, args.address),
+      jni$_.MethodInvocation.fromAddresses(
+        0,
+        descriptor.address,
+        args.address,
+      ),
     );
   }
 
   static final jni$_.Pointer<
     jni$_.NativeFunction<
-      jni$_.JObjectPtr Function(jni$_.Int64, jni$_.JObjectPtr, jni$_.JObjectPtr)
+      jni$_.JObjectPtr Function(
+        jni$_.Int64,
+        jni$_.JObjectPtr,
+        jni$_.JObjectPtr,
+      )
     >
   >
   _$invokePointer = jni$_.Pointer.fromFunction(_$invoke);
@@ -1872,9 +1903,15 @@ final class _$HealthConnectClient with $HealthConnectClient {
     jni$_.JObject continuation,
   )
   _registerForDataNotifications;
-  final jni$_.JObject Function(jni$_.JString string, jni$_.JObject continuation)
+  final jni$_.JObject Function(
+    jni$_.JString string,
+    jni$_.JObject continuation,
+  )
   _unregisterFromDataNotifications;
-  final jni$_.JObject Function(jni$_.JString string, jni$_.JObject continuation)
+  final jni$_.JObject Function(
+    jni$_.JString string,
+    jni$_.JObject continuation,
+  )
   _getChanges;
   final bool Function(Context context, jni$_.JList<jni$_.JString?> list)
   _isAvailable;
@@ -1957,7 +1994,10 @@ final class _$HealthConnectClient with $HealthConnectClient {
     AggregateGroupByPeriodRequest aggregateGroupByPeriodRequest,
     jni$_.JObject continuation,
   ) {
-    return _aggregateGroupByPeriod(aggregateGroupByPeriodRequest, continuation);
+    return _aggregateGroupByPeriod(
+      aggregateGroupByPeriodRequest,
+      continuation,
+    );
   }
 
   jni$_.JObject getChangesToken(
@@ -2097,10 +2137,11 @@ class PermissionController$Companion extends jni$_.JObject {
   /// The type which includes information such as the signature of this class.
   static const nullableType = $PermissionController$Companion$NullableType();
   static const type = $PermissionController$Companion$Type();
-  static final _id_createRequestPermissionResultContract = _class.instanceMethodId(
-    r'createRequestPermissionResultContract',
-    r'(Ljava/lang/String;)Landroidx/activity/result/contract/ActivityResultContract;',
-  );
+  static final _id_createRequestPermissionResultContract = _class
+      .instanceMethodId(
+        r'createRequestPermissionResultContract',
+        r'(Ljava/lang/String;)Landroidx/activity/result/contract/ActivityResultContract;',
+      );
 
   static final _createRequestPermissionResultContract =
       jni$_.ProtectedJniExtensions.lookup<
@@ -2299,7 +2340,9 @@ class PermissionController extends jni$_.JObject {
     jni$_.JSet<jni$_.JObject?> set,
   ) async {
     final $p = jni$_.ReceivePort();
-    final _$continuation = jni$_.ProtectedJniExtensions.newPortContinuation($p);
+    final _$continuation = jni$_.ProtectedJniExtensions.newPortContinuation(
+      $p,
+    );
     final _$set = set.reference;
     _getGrantedPermissions(
       reference.pointer,
@@ -2351,7 +2394,9 @@ class PermissionController extends jni$_.JObject {
   /// The returned object must be released after use, by calling the [release] method.
   core$_.Future<jni$_.JObject> revokeAllPermissions() async {
     final $p = jni$_.ReceivePort();
-    final _$continuation = jni$_.ProtectedJniExtensions.newPortContinuation($p);
+    final _$continuation = jni$_.ProtectedJniExtensions.newPortContinuation(
+      $p,
+    );
 
     _revokeAllPermissions(
       reference.pointer,
@@ -2371,10 +2416,11 @@ class PermissionController extends jni$_.JObject {
     return const jni$_.JObjectType().fromReference($o);
   }
 
-  static final _id_createRequestPermissionResultContract = _class.staticMethodId(
-    r'createRequestPermissionResultContract',
-    r'(Ljava/lang/String;)Landroidx/activity/result/contract/ActivityResultContract;',
-  );
+  static final _id_createRequestPermissionResultContract = _class
+      .staticMethodId(
+        r'createRequestPermissionResultContract',
+        r'(Ljava/lang/String;)Landroidx/activity/result/contract/ActivityResultContract;',
+      );
 
   static final _createRequestPermissionResultContract =
       jni$_.ProtectedJniExtensions.lookup<
@@ -2447,13 +2493,21 @@ class PermissionController extends jni$_.JObject {
   ) {
     return _$invokeMethod(
       port,
-      jni$_.MethodInvocation.fromAddresses(0, descriptor.address, args.address),
+      jni$_.MethodInvocation.fromAddresses(
+        0,
+        descriptor.address,
+        args.address,
+      ),
     );
   }
 
   static final jni$_.Pointer<
     jni$_.NativeFunction<
-      jni$_.JObjectPtr Function(jni$_.Int64, jni$_.JObjectPtr, jni$_.JObjectPtr)
+      jni$_.JObjectPtr Function(
+        jni$_.Int64,
+        jni$_.JObjectPtr,
+        jni$_.JObjectPtr,
+      )
     >
   >
   _$invokePointer = jni$_.Pointer.fromFunction(_$invoke);
@@ -4391,7 +4445,10 @@ class Context extends jni$_.JObject {
   /// from: `static public final java.lang.String CARRIER_CONFIG_SERVICE`
   /// The returned object must be released after use, by calling the [release] method.
   static jni$_.JString? get CARRIER_CONFIG_SERVICE =>
-      _id_CARRIER_CONFIG_SERVICE.get(_class, const jni$_.JStringNullableType());
+      _id_CARRIER_CONFIG_SERVICE.get(
+        _class,
+        const jni$_.JStringNullableType(),
+      );
 
   static final _id_CLIPBOARD_SERVICE = _class.staticFieldId(
     r'CLIPBOARD_SERVICE',
@@ -4551,7 +4608,10 @@ class Context extends jni$_.JObject {
   /// from: `static public final java.lang.String FILE_INTEGRITY_SERVICE`
   /// The returned object must be released after use, by calling the [release] method.
   static jni$_.JString? get FILE_INTEGRITY_SERVICE =>
-      _id_FILE_INTEGRITY_SERVICE.get(_class, const jni$_.JStringNullableType());
+      _id_FILE_INTEGRITY_SERVICE.get(
+        _class,
+        const jni$_.JStringNullableType(),
+      );
 
   static final _id_FINGERPRINT_SERVICE = _class.staticFieldId(
     r'FINGERPRINT_SERVICE',
@@ -5109,7 +5169,10 @@ class Context extends jni$_.JObject {
   /// from: `static public final java.lang.String VPN_MANAGEMENT_SERVICE`
   /// The returned object must be released after use, by calling the [release] method.
   static jni$_.JString? get VPN_MANAGEMENT_SERVICE =>
-      _id_VPN_MANAGEMENT_SERVICE.get(_class, const jni$_.JStringNullableType());
+      _id_VPN_MANAGEMENT_SERVICE.get(
+        _class,
+        const jni$_.JStringNullableType(),
+      );
 
   static final _id_WALLPAPER_SERVICE = _class.staticFieldId(
     r'WALLPAPER_SERVICE',
@@ -5671,7 +5734,11 @@ class Context extends jni$_.JObject {
 
   /// from: `public abstract void setTheme(int i)`
   void setTheme(int i) {
-    _setTheme(reference.pointer, _id_setTheme as jni$_.JMethodIDPtr, i).check();
+    _setTheme(
+      reference.pointer,
+      _id_setTheme as jni$_.JMethodIDPtr,
+      i,
+    ).check();
   }
 
   static final _id_getTheme = _class.instanceMethodId(
@@ -9324,7 +9391,10 @@ class Context extends jni$_.JObject {
           >();
 
   /// from: `public abstract void enforceCallingPermission(java.lang.String string, java.lang.String string1)`
-  void enforceCallingPermission(jni$_.JString? string, jni$_.JString? string1) {
+  void enforceCallingPermission(
+    jni$_.JString? string,
+    jni$_.JString? string1,
+  ) {
     final _$string = string?.reference ?? jni$_.jNullReference;
     final _$string1 = string1?.reference ?? jni$_.jNullReference;
     _enforceCallingPermission(
@@ -9487,7 +9557,11 @@ class Context extends jni$_.JObject {
           >();
 
   /// from: `public abstract void revokeUriPermission(java.lang.String string, android.net.Uri uri, int i)`
-  void revokeUriPermission$1(jni$_.JString? string, jni$_.JObject? uri, int i) {
+  void revokeUriPermission$1(
+    jni$_.JString? string,
+    jni$_.JObject? uri,
+    int i,
+  ) {
     final _$string = string?.reference ?? jni$_.jNullReference;
     final _$uri = uri?.reference ?? jni$_.jNullReference;
     _revokeUriPermission$1(
@@ -10891,7 +10965,10 @@ class Intent$ShortcutIconResource extends jni$_.JObject {
   /// The returned object must be released after use, by calling the [release] method.
   factory Intent$ShortcutIconResource() {
     return Intent$ShortcutIconResource.fromReference(
-      _new$(_class.reference.pointer, _id_new$ as jni$_.JMethodIDPtr).reference,
+      _new$(
+        _class.reference.pointer,
+        _id_new$ as jni$_.JMethodIDPtr,
+      ).reference,
     );
   }
 
@@ -11241,7 +11318,10 @@ class Intent extends jni$_.JObject {
   /// from: `static public final java.lang.String ACTION_BATTERY_CHANGED`
   /// The returned object must be released after use, by calling the [release] method.
   static jni$_.JString? get ACTION_BATTERY_CHANGED =>
-      _id_ACTION_BATTERY_CHANGED.get(_class, const jni$_.JStringNullableType());
+      _id_ACTION_BATTERY_CHANGED.get(
+        _class,
+        const jni$_.JStringNullableType(),
+      );
 
   static final _id_ACTION_BATTERY_LOW = _class.staticFieldId(
     r'ACTION_BATTERY_LOW',
@@ -11367,7 +11447,10 @@ class Intent extends jni$_.JObject {
   /// from: `static public final java.lang.String ACTION_CREATE_DOCUMENT`
   /// The returned object must be released after use, by calling the [release] method.
   static jni$_.JString? get ACTION_CREATE_DOCUMENT =>
-      _id_ACTION_CREATE_DOCUMENT.get(_class, const jni$_.JStringNullableType());
+      _id_ACTION_CREATE_DOCUMENT.get(
+        _class,
+        const jni$_.JStringNullableType(),
+      );
 
   static final _id_ACTION_CREATE_REMINDER = _class.staticFieldId(
     r'ACTION_CREATE_REMINDER',
@@ -11377,7 +11460,10 @@ class Intent extends jni$_.JObject {
   /// from: `static public final java.lang.String ACTION_CREATE_REMINDER`
   /// The returned object must be released after use, by calling the [release] method.
   static jni$_.JString? get ACTION_CREATE_REMINDER =>
-      _id_ACTION_CREATE_REMINDER.get(_class, const jni$_.JStringNullableType());
+      _id_ACTION_CREATE_REMINDER.get(
+        _class,
+        const jni$_.JStringNullableType(),
+      );
 
   static final _id_ACTION_CREATE_SHORTCUT = _class.staticFieldId(
     r'ACTION_CREATE_SHORTCUT',
@@ -11387,7 +11473,10 @@ class Intent extends jni$_.JObject {
   /// from: `static public final java.lang.String ACTION_CREATE_SHORTCUT`
   /// The returned object must be released after use, by calling the [release] method.
   static jni$_.JString? get ACTION_CREATE_SHORTCUT =>
-      _id_ACTION_CREATE_SHORTCUT.get(_class, const jni$_.JStringNullableType());
+      _id_ACTION_CREATE_SHORTCUT.get(
+        _class,
+        const jni$_.JStringNullableType(),
+      );
 
   static final _id_ACTION_DATE_CHANGED = _class.staticFieldId(
     r'ACTION_DATE_CHANGED',
@@ -11649,7 +11738,10 @@ class Intent extends jni$_.JObject {
   /// from: `static public final java.lang.String ACTION_INSTALL_FAILURE`
   /// The returned object must be released after use, by calling the [release] method.
   static jni$_.JString? get ACTION_INSTALL_FAILURE =>
-      _id_ACTION_INSTALL_FAILURE.get(_class, const jni$_.JStringNullableType());
+      _id_ACTION_INSTALL_FAILURE.get(
+        _class,
+        const jni$_.JStringNullableType(),
+      );
 
   static final _id_ACTION_INSTALL_PACKAGE = _class.staticFieldId(
     r'ACTION_INSTALL_PACKAGE',
@@ -11659,7 +11751,10 @@ class Intent extends jni$_.JObject {
   /// from: `static public final java.lang.String ACTION_INSTALL_PACKAGE`
   /// The returned object must be released after use, by calling the [release] method.
   static jni$_.JString? get ACTION_INSTALL_PACKAGE =>
-      _id_ACTION_INSTALL_PACKAGE.get(_class, const jni$_.JStringNullableType());
+      _id_ACTION_INSTALL_PACKAGE.get(
+        _class,
+        const jni$_.JStringNullableType(),
+      );
 
   static final _id_ACTION_LOCALE_CHANGED = _class.staticFieldId(
     r'ACTION_LOCALE_CHANGED',
@@ -11941,7 +12036,10 @@ class Intent extends jni$_.JObject {
   /// from: `static public final java.lang.String ACTION_MEDIA_UNMOUNTED`
   /// The returned object must be released after use, by calling the [release] method.
   static jni$_.JString? get ACTION_MEDIA_UNMOUNTED =>
-      _id_ACTION_MEDIA_UNMOUNTED.get(_class, const jni$_.JStringNullableType());
+      _id_ACTION_MEDIA_UNMOUNTED.get(
+        _class,
+        const jni$_.JStringNullableType(),
+      );
 
   static final _id_ACTION_MY_PACKAGE_REPLACED = _class.staticFieldId(
     r'ACTION_MY_PACKAGE_REPLACED',
@@ -12062,7 +12160,10 @@ class Intent extends jni$_.JObject {
   /// from: `static public final java.lang.String ACTION_PACKAGE_CHANGED`
   /// The returned object must be released after use, by calling the [release] method.
   static jni$_.JString? get ACTION_PACKAGE_CHANGED =>
-      _id_ACTION_PACKAGE_CHANGED.get(_class, const jni$_.JStringNullableType());
+      _id_ACTION_PACKAGE_CHANGED.get(
+        _class,
+        const jni$_.JStringNullableType(),
+      );
 
   static final _id_ACTION_PACKAGE_DATA_CLEARED = _class.staticFieldId(
     r'ACTION_PACKAGE_DATA_CLEARED',
@@ -12111,7 +12212,10 @@ class Intent extends jni$_.JObject {
   /// from: `static public final java.lang.String ACTION_PACKAGE_INSTALL`
   /// The returned object must be released after use, by calling the [release] method.
   static jni$_.JString? get ACTION_PACKAGE_INSTALL =>
-      _id_ACTION_PACKAGE_INSTALL.get(_class, const jni$_.JStringNullableType());
+      _id_ACTION_PACKAGE_INSTALL.get(
+        _class,
+        const jni$_.JStringNullableType(),
+      );
 
   static final _id_ACTION_PACKAGE_NEEDS_VERIFICATION = _class.staticFieldId(
     r'ACTION_PACKAGE_NEEDS_VERIFICATION',
@@ -12134,7 +12238,10 @@ class Intent extends jni$_.JObject {
   /// from: `static public final java.lang.String ACTION_PACKAGE_REMOVED`
   /// The returned object must be released after use, by calling the [release] method.
   static jni$_.JString? get ACTION_PACKAGE_REMOVED =>
-      _id_ACTION_PACKAGE_REMOVED.get(_class, const jni$_.JStringNullableType());
+      _id_ACTION_PACKAGE_REMOVED.get(
+        _class,
+        const jni$_.JStringNullableType(),
+      );
 
   static final _id_ACTION_PACKAGE_REPLACED = _class.staticFieldId(
     r'ACTION_PACKAGE_REPLACED',
@@ -12213,7 +12320,10 @@ class Intent extends jni$_.JObject {
   /// from: `static public final java.lang.String ACTION_POWER_CONNECTED`
   /// The returned object must be released after use, by calling the [release] method.
   static jni$_.JString? get ACTION_POWER_CONNECTED =>
-      _id_ACTION_POWER_CONNECTED.get(_class, const jni$_.JStringNullableType());
+      _id_ACTION_POWER_CONNECTED.get(
+        _class,
+        const jni$_.JStringNullableType(),
+      );
 
   static final _id_ACTION_POWER_DISCONNECTED = _class.staticFieldId(
     r'ACTION_POWER_DISCONNECTED',
@@ -12471,7 +12581,10 @@ class Intent extends jni$_.JObject {
   /// from: `static public final java.lang.String ACTION_SYSTEM_TUTORIAL`
   /// The returned object must be released after use, by calling the [release] method.
   static jni$_.JString? get ACTION_SYSTEM_TUTORIAL =>
-      _id_ACTION_SYSTEM_TUTORIAL.get(_class, const jni$_.JStringNullableType());
+      _id_ACTION_SYSTEM_TUTORIAL.get(
+        _class,
+        const jni$_.JStringNullableType(),
+      );
 
   static final _id_ACTION_TIMEZONE_CHANGED = _class.staticFieldId(
     r'ACTION_TIMEZONE_CHANGED',
@@ -12570,7 +12683,10 @@ class Intent extends jni$_.JObject {
   /// from: `static public final java.lang.String ACTION_USER_BACKGROUND`
   /// The returned object must be released after use, by calling the [release] method.
   static jni$_.JString? get ACTION_USER_BACKGROUND =>
-      _id_ACTION_USER_BACKGROUND.get(_class, const jni$_.JStringNullableType());
+      _id_ACTION_USER_BACKGROUND.get(
+        _class,
+        const jni$_.JStringNullableType(),
+      );
 
   static final _id_ACTION_USER_FOREGROUND = _class.staticFieldId(
     r'ACTION_USER_FOREGROUND',
@@ -12580,7 +12696,10 @@ class Intent extends jni$_.JObject {
   /// from: `static public final java.lang.String ACTION_USER_FOREGROUND`
   /// The returned object must be released after use, by calling the [release] method.
   static jni$_.JString? get ACTION_USER_FOREGROUND =>
-      _id_ACTION_USER_FOREGROUND.get(_class, const jni$_.JStringNullableType());
+      _id_ACTION_USER_FOREGROUND.get(
+        _class,
+        const jni$_.JStringNullableType(),
+      );
 
   static final _id_ACTION_USER_INITIALIZE = _class.staticFieldId(
     r'ACTION_USER_INITIALIZE',
@@ -12590,7 +12709,10 @@ class Intent extends jni$_.JObject {
   /// from: `static public final java.lang.String ACTION_USER_INITIALIZE`
   /// The returned object must be released after use, by calling the [release] method.
   static jni$_.JString? get ACTION_USER_INITIALIZE =>
-      _id_ACTION_USER_INITIALIZE.get(_class, const jni$_.JStringNullableType());
+      _id_ACTION_USER_INITIALIZE.get(
+        _class,
+        const jni$_.JStringNullableType(),
+      );
 
   static final _id_ACTION_USER_PRESENT = _class.staticFieldId(
     r'ACTION_USER_PRESENT',
@@ -12827,7 +12949,10 @@ class Intent extends jni$_.JObject {
   /// from: `static public final java.lang.String CATEGORY_APP_MESSAGING`
   /// The returned object must be released after use, by calling the [release] method.
   static jni$_.JString? get CATEGORY_APP_MESSAGING =>
-      _id_CATEGORY_APP_MESSAGING.get(_class, const jni$_.JStringNullableType());
+      _id_CATEGORY_APP_MESSAGING.get(
+        _class,
+        const jni$_.JStringNullableType(),
+      );
 
   static final _id_CATEGORY_APP_MUSIC = _class.staticFieldId(
     r'CATEGORY_APP_MUSIC',
@@ -13245,7 +13370,10 @@ class Intent extends jni$_.JObject {
   /// from: `static public final java.lang.String EXTRA_ATTRIBUTION_TAGS`
   /// The returned object must be released after use, by calling the [release] method.
   static jni$_.JString? get EXTRA_ATTRIBUTION_TAGS =>
-      _id_EXTRA_ATTRIBUTION_TAGS.get(_class, const jni$_.JStringNullableType());
+      _id_EXTRA_ATTRIBUTION_TAGS.get(
+        _class,
+        const jni$_.JStringNullableType(),
+      );
 
   static final _id_EXTRA_AUTO_LAUNCH_SINGLE_CHOICE = _class.staticFieldId(
     r'EXTRA_AUTO_LAUNCH_SINGLE_CHOICE',
@@ -13337,7 +13465,10 @@ class Intent extends jni$_.JObject {
   /// from: `static public final java.lang.String EXTRA_CHANGED_UID_LIST`
   /// The returned object must be released after use, by calling the [release] method.
   static jni$_.JString? get EXTRA_CHANGED_UID_LIST =>
-      _id_EXTRA_CHANGED_UID_LIST.get(_class, const jni$_.JStringNullableType());
+      _id_EXTRA_CHANGED_UID_LIST.get(
+        _class,
+        const jni$_.JStringNullableType(),
+      );
 
   static final _id_EXTRA_CHOOSER_REFINEMENT_INTENT_SENDER = _class
       .staticFieldId(
@@ -13371,7 +13502,10 @@ class Intent extends jni$_.JObject {
   /// from: `static public final java.lang.String EXTRA_CHOSEN_COMPONENT`
   /// The returned object must be released after use, by calling the [release] method.
   static jni$_.JString? get EXTRA_CHOSEN_COMPONENT =>
-      _id_EXTRA_CHOSEN_COMPONENT.get(_class, const jni$_.JStringNullableType());
+      _id_EXTRA_CHOSEN_COMPONENT.get(
+        _class,
+        const jni$_.JStringNullableType(),
+      );
 
   static final _id_EXTRA_CHOSEN_COMPONENT_INTENT_SENDER = _class.staticFieldId(
     r'EXTRA_CHOSEN_COMPONENT_INTENT_SENDER',
@@ -14212,11 +14346,16 @@ class Intent extends jni$_.JObject {
   /// The returned object must be released after use, by calling the [release] method.
   factory Intent() {
     return Intent.fromReference(
-      _new$(_class.reference.pointer, _id_new$ as jni$_.JMethodIDPtr).reference,
+      _new$(
+        _class.reference.pointer,
+        _id_new$ as jni$_.JMethodIDPtr,
+      ).reference,
     );
   }
 
-  static final _id_new$1 = _class.constructorId(r'(Landroid/content/Intent;)V');
+  static final _id_new$1 = _class.constructorId(
+    r'(Landroid/content/Intent;)V',
+  );
 
   static final _new$1 =
       jni$_.ProtectedJniExtensions.lookup<
@@ -15126,7 +15265,9 @@ class Intent extends jni$_.JObject {
       reference.pointer,
       _id_getCategories as jni$_.JMethodIDPtr,
     ).object<jni$_.JSet<jni$_.JString?>?>(
-      const jni$_.JSetNullableType<jni$_.JString?>(jni$_.JStringNullableType()),
+      const jni$_.JSetNullableType<jni$_.JString?>(
+        jni$_.JStringNullableType(),
+      ),
     );
   }
 
@@ -15738,7 +15879,9 @@ class Intent extends jni$_.JObject {
 
   /// from: `public android.os.Parcelable[] getParcelableArrayExtra(java.lang.String string)`
   /// The returned object must be released after use, by calling the [release] method.
-  jni$_.JArray<jni$_.JObject?>? getParcelableArrayExtra(jni$_.JString? string) {
+  jni$_.JArray<jni$_.JObject?>? getParcelableArrayExtra(
+    jni$_.JString? string,
+  ) {
     final _$string = string?.reference ?? jni$_.jNullReference;
     return _getParcelableArrayExtra(
       reference.pointer,
@@ -15791,7 +15934,9 @@ class Intent extends jni$_.JObject {
       _id_getParcelableArrayExtra$1 as jni$_.JMethodIDPtr,
       _$string.pointer,
       _$class$.pointer,
-    ).object<jni$_.JArray<$T?>?>(jni$_.JArrayNullableType<$T?>(T.nullableType));
+    ).object<jni$_.JArray<$T?>?>(
+      jni$_.JArrayNullableType<$T?>(T.nullableType),
+    );
   }
 
   static final _id_getParcelableArrayListExtra = _class.instanceMethodId(
@@ -19146,7 +19291,10 @@ class Activity extends jni$_.JObject {
   /// The returned object must be released after use, by calling the [release] method.
   factory Activity() {
     return Activity.fromReference(
-      _new$(_class.reference.pointer, _id_new$ as jni$_.JMethodIDPtr).reference,
+      _new$(
+        _class.reference.pointer,
+        _id_new$ as jni$_.JMethodIDPtr,
+      ).reference,
     );
   }
 
@@ -19457,10 +19605,11 @@ class Activity extends jni$_.JObject {
     ).object<jni$_.JObject?>(const jni$_.JObjectNullableType());
   }
 
-  static final _id_registerActivityLifecycleCallbacks = _class.instanceMethodId(
-    r'registerActivityLifecycleCallbacks',
-    r'(Landroid/app/Application$ActivityLifecycleCallbacks;)V',
-  );
+  static final _id_registerActivityLifecycleCallbacks = _class
+      .instanceMethodId(
+        r'registerActivityLifecycleCallbacks',
+        r'(Landroid/app/Application$ActivityLifecycleCallbacks;)V',
+      );
 
   static final _registerActivityLifecycleCallbacks =
       jni$_.ProtectedJniExtensions.lookup<
@@ -22419,10 +22568,11 @@ class Activity extends jni$_.JObject {
     ).boolean;
   }
 
-  static final _id_dispatchPopulateAccessibilityEvent = _class.instanceMethodId(
-    r'dispatchPopulateAccessibilityEvent',
-    r'(Landroid/view/accessibility/AccessibilityEvent;)Z',
-  );
+  static final _id_dispatchPopulateAccessibilityEvent = _class
+      .instanceMethodId(
+        r'dispatchPopulateAccessibilityEvent',
+        r'(Landroid/view/accessibility/AccessibilityEvent;)Z',
+      );
 
   static final _dispatchPopulateAccessibilityEvent =
       jni$_.ProtectedJniExtensions.lookup<
@@ -23263,7 +23413,10 @@ class Activity extends jni$_.JObject {
     ).check();
   }
 
-  static final _id_showDialog = _class.instanceMethodId(r'showDialog', r'(I)V');
+  static final _id_showDialog = _class.instanceMethodId(
+    r'showDialog',
+    r'(I)V',
+  );
 
   static final _showDialog =
       jni$_.ProtectedJniExtensions.lookup<
@@ -23857,7 +24010,11 @@ class Activity extends jni$_.JObject {
 
   /// from: `public void setTheme(int i)`
   void setTheme(int i) {
-    _setTheme(reference.pointer, _id_setTheme as jni$_.JMethodIDPtr, i).check();
+    _setTheme(
+      reference.pointer,
+      _id_setTheme as jni$_.JMethodIDPtr,
+      i,
+    ).check();
   }
 
   static final _id_requestPermissions = _class.instanceMethodId(
@@ -25209,7 +25366,10 @@ class Activity extends jni$_.JObject {
     ).object<jni$_.JObject?>(const jni$_.JObjectNullableType());
   }
 
-  static final _id_setVisible = _class.instanceMethodId(r'setVisible', r'(Z)V');
+  static final _id_setVisible = _class.instanceMethodId(
+    r'setVisible',
+    r'(Z)V',
+  );
 
   static final _setVisible =
       jni$_.ProtectedJniExtensions.lookup<
@@ -27686,13 +27846,15 @@ class Instant extends jni$_.JObject {
 
   /// from: `static public final java.time.Instant MAX`
   /// The returned object must be released after use, by calling the [release] method.
-  static Instant? get MAX => _id_MAX.get(_class, const $Instant$NullableType());
+  static Instant? get MAX =>
+      _id_MAX.get(_class, const $Instant$NullableType());
 
   static final _id_MIN = _class.staticFieldId(r'MIN', r'Ljava/time/Instant;');
 
   /// from: `static public final java.time.Instant MIN`
   /// The returned object must be released after use, by calling the [release] method.
-  static Instant? get MIN => _id_MIN.get(_class, const $Instant$NullableType());
+  static Instant? get MIN =>
+      _id_MIN.get(_class, const $Instant$NullableType());
 
   static final _id_now = _class.staticMethodId(
     r'now',
@@ -29447,7 +29609,8 @@ final class $AggregateGroupByPeriodRequest$NullableType
 
   @core$_.override
   bool operator ==(Object other) {
-    return other.runtimeType == ($AggregateGroupByPeriodRequest$NullableType) &&
+    return other.runtimeType ==
+            ($AggregateGroupByPeriodRequest$NullableType) &&
         other is $AggregateGroupByPeriodRequest$NullableType;
   }
 }
@@ -30396,12 +30559,9 @@ class AggregationResult extends jni$_.JObject {
     AggregateMetric<$T> aggregateMetric, {
     jni$_.JObjType<$T>? T,
   }) {
-    T ??=
-        jni$_.lowestCommonSuperType([
-              (aggregateMetric.$type as $AggregateMetric$Type<core$_.dynamic>)
-                  .T,
-            ])
-            as jni$_.JObjType<$T>;
+    T ??= jni$_.lowestCommonSuperType([
+      (aggregateMetric.$type as $AggregateMetric$Type<core$_.dynamic>).T,
+    ]) as jni$_.JObjType<$T>;
     final _$aggregateMetric = aggregateMetric.reference;
     return _getMetric(
       reference.pointer,
@@ -30439,12 +30599,9 @@ class AggregationResult extends jni$_.JObject {
     AggregateMetric<$T> aggregateMetric, {
     jni$_.JObjType<$T>? T,
   }) {
-    T ??=
-        jni$_.lowestCommonSuperType([
-              (aggregateMetric.$type as $AggregateMetric$Type<core$_.dynamic>)
-                  .T,
-            ])
-            as jni$_.JObjType<$T>;
+    T ??= jni$_.lowestCommonSuperType([
+      (aggregateMetric.$type as $AggregateMetric$Type<core$_.dynamic>).T,
+    ]) as jni$_.JObjType<$T>;
     final _$aggregateMetric = aggregateMetric.reference;
     return _get(
       reference.pointer,
@@ -30953,13 +31110,21 @@ class AggregateMetric$Converter$FromDouble<$R extends jni$_.JObject>
   ) {
     return _$invokeMethod(
       port,
-      jni$_.MethodInvocation.fromAddresses(0, descriptor.address, args.address),
+      jni$_.MethodInvocation.fromAddresses(
+        0,
+        descriptor.address,
+        args.address,
+      ),
     );
   }
 
   static final jni$_.Pointer<
     jni$_.NativeFunction<
-      jni$_.JObjectPtr Function(jni$_.Int64, jni$_.JObjectPtr, jni$_.JObjectPtr)
+      jni$_.JObjectPtr Function(
+        jni$_.Int64,
+        jni$_.JObjectPtr,
+        jni$_.JObjectPtr,
+      )
     >
   >
   _$invokePointer = jni$_.Pointer.fromFunction(_$invoke);
@@ -31080,7 +31245,9 @@ final class $AggregateMetric$Converter$FromDouble$NullableType<
   }
 }
 
-final class $AggregateMetric$Converter$FromDouble$Type<$R extends jni$_.JObject>
+final class $AggregateMetric$Converter$FromDouble$Type<
+  $R extends jni$_.JObject
+>
     extends jni$_.JObjType<AggregateMetric$Converter$FromDouble<$R>> {
   @jni$_.internal
   final jni$_.JObjType<$R> R;
@@ -31166,13 +31333,21 @@ class AggregateMetric$Converter$FromLong<$R extends jni$_.JObject>
   ) {
     return _$invokeMethod(
       port,
-      jni$_.MethodInvocation.fromAddresses(0, descriptor.address, args.address),
+      jni$_.MethodInvocation.fromAddresses(
+        0,
+        descriptor.address,
+        args.address,
+      ),
     );
   }
 
   static final jni$_.Pointer<
     jni$_.NativeFunction<
-      jni$_.JObjectPtr Function(jni$_.Int64, jni$_.JObjectPtr, jni$_.JObjectPtr)
+      jni$_.JObjectPtr Function(
+        jni$_.Int64,
+        jni$_.JObjectPtr,
+        jni$_.JObjectPtr,
+      )
     >
   >
   _$invokePointer = jni$_.Pointer.fromFunction(_$invoke);
@@ -31230,8 +31405,9 @@ class AggregateMetric$Converter$FromLong<$R extends jni$_.JObject>
 abstract base mixin class $AggregateMetric$Converter$FromLong<
   $R extends jni$_.JObject
 > {
-  factory $AggregateMetric$Converter$FromLong({required jni$_.JObjType<$R> R}) =
-      _$AggregateMetric$Converter$FromLong<$R>;
+  factory $AggregateMetric$Converter$FromLong({
+    required jni$_.JObjType<$R> R,
+  }) = _$AggregateMetric$Converter$FromLong<$R>;
 
   jni$_.JObjType<$R> get R;
 }
@@ -31387,13 +31563,21 @@ class AggregateMetric$Converter<
   ) {
     return _$invokeMethod(
       port,
-      jni$_.MethodInvocation.fromAddresses(0, descriptor.address, args.address),
+      jni$_.MethodInvocation.fromAddresses(
+        0,
+        descriptor.address,
+        args.address,
+      ),
     );
   }
 
   static final jni$_.Pointer<
     jni$_.NativeFunction<
-      jni$_.JObjectPtr Function(jni$_.Int64, jni$_.JObjectPtr, jni$_.JObjectPtr)
+      jni$_.JObjectPtr Function(
+        jni$_.Int64,
+        jni$_.JObjectPtr,
+        jni$_.JObjectPtr,
+      )
     >
   >
   _$invokePointer = jni$_.Pointer.fromFunction(_$invoke);
@@ -31549,8 +31733,9 @@ final class $AggregateMetric$Converter$Type<
 
   @jni$_.internal
   @core$_.override
-  AggregateMetric$Converter<$T, $R> fromReference(jni$_.JReference reference) =>
-      AggregateMetric$Converter<$T, $R>.fromReference(T, R, reference);
+  AggregateMetric$Converter<$T, $R> fromReference(
+    jni$_.JReference reference,
+  ) => AggregateMetric$Converter<$T, $R>.fromReference(T, R, reference);
   @jni$_.internal
   @core$_.override
   jni$_.JObjType get superType => const jni$_.JObjectNullableType();
@@ -31657,16 +31842,14 @@ class AggregateMetric<$T extends jni$_.JObject> extends jni$_.JObject {
     jni$_.JString? string1, {
     jni$_.JObjType<$T>? T,
   }) {
-    T ??=
-        jni$_.lowestCommonSuperType([
-              (converter.$type
-                      as $AggregateMetric$Converter$Type<
-                        core$_.dynamic,
-                        core$_.dynamic
-                      >)
-                  .R,
-            ])
-            as jni$_.JObjType<$T>;
+    T ??= jni$_.lowestCommonSuperType([
+      (converter.$type
+              as $AggregateMetric$Converter$Type<
+                core$_.dynamic,
+                core$_.dynamic
+              >)
+          .R,
+    ]) as jni$_.JObjType<$T>;
     final _$converter = converter.reference;
     final _$string = string.reference;
     final _$aggregationType = aggregationType.reference;
@@ -31701,7 +31884,9 @@ final class $AggregateMetric$NullableType<$T extends jni$_.JObject>
   @jni$_.internal
   @core$_.override
   AggregateMetric<$T>? fromReference(jni$_.JReference reference) =>
-      reference.isNull ? null : AggregateMetric<$T>.fromReference(T, reference);
+      reference.isNull
+      ? null
+      : AggregateMetric<$T>.fromReference(T, reference);
   @jni$_.internal
   @core$_.override
   jni$_.JObjType get superType => const jni$_.JObjectType();

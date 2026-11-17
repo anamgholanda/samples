@@ -2,7 +2,7 @@ import 'dart:async';
 import 'dart:js_interop' as js;
 import 'dart:js_interop_unsafe' as js_util;
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 void main() {
   runApp(const MyApp());
@@ -90,16 +90,12 @@ class _MyAppState extends State<MyApp> {
       switch (screenString) {
         case 'counter':
           _currentDemoScreen = DemoScreen.counter;
-          break;
         case 'textField':
           _currentDemoScreen = DemoScreen.textField;
-          break;
         case 'custom':
           _currentDemoScreen = DemoScreen.custom;
-          break;
         default:
           _currentDemoScreen = DemoScreen.counter;
-          break;
       }
     });
   }

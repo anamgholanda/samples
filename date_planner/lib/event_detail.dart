@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'package:flutter/cupertino.dart';
+import 'package:cupertino_ui/cupertino_ui.dart';
 
 import 'color_options.dart';
 import 'event.dart';
@@ -88,7 +88,8 @@ class _EventDetailState extends State<EventDetail> {
                           onChanged: (value) => event.title = value,
                         ),
                       ),
-                    if (!widget.isEditing) Text(event.title, style: titleStyle),
+                    if (!widget.isEditing)
+                      Text(event.title, style: titleStyle),
                   ],
                 ),
                 const SizedBox(height: 12),

@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:cupertino_ui/cupertino_ui.dart';
 
 class PopupSurfacePage extends StatelessWidget {
   const PopupSurfacePage({super.key});
@@ -15,7 +15,7 @@ class PopupSurfacePage extends StatelessWidget {
           onPressed: () {
             showCupertinoModalPopup<void>(
               context: context,
-              builder: (BuildContext context) {
+              builder: (context) {
                 return CupertinoPopupSurface(
                   child: Container(
                     color: CupertinoColors.white,

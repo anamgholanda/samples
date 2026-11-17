@@ -2,11 +2,12 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../../domain/models/booking/booking_summary.dart';
 import '../../../routing/routes.dart';
+import '../../auth/logout/view_models/logout_viewmodel.dart';
 import '../../core/localization/applocalization.dart';
 import '../../core/themes/colors.dart';
 import '../../core/themes/dimens.dart';
@@ -18,9 +19,14 @@ import 'home_title.dart';
 const String bookingButtonKey = 'booking-button';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key, required this.viewModel});
+  const HomeScreen({
+    super.key,
+    required this.viewModel,
+    required this.logoutViewModel,
+  });
 
   final HomeViewModel viewModel;
+  final LogoutViewModel logoutViewModel;
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -88,7 +94,10 @@ class _HomeScreenState extends State<HomeScreen> {
                         vertical: Dimens.of(context).paddingScreenVertical,
                         horizontal: Dimens.of(context).paddingScreenHorizontal,
                       ),
-                      child: HomeHeader(viewModel: widget.viewModel),
+                      child: HomeHeader(
+                        viewModel: widget.viewModel,
+                        logoutViewModel: widget.logoutViewModel,
+                      ),
                     ),
                   ),
                   SliverList.builder(
